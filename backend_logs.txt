@@ -1,0 +1,549 @@
+Building...
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: http://localhost:5292
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Development
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: /Users/venkataravindrapv/music app/backend
+warn: Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware[3]
+      Failed to determine the https port for redirect.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[@__request_Username_0='?' (Size = 10)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Username" = @__request_Username_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (Size = 60), @p1='?' (Size = 10)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Users" ("PasswordHash", "Username")
+      VALUES (@p0, @p1)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Username_0='?' (Size = 10)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Id", "u"."PasswordHash", "u"."Username"
+      FROM "Users" AS "u"
+      WHERE "u"."Username" = @__request_Username_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+      FROM "Songs" AS "s"
+      ORDER BY "s"."UploadDate" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+      FROM "Songs" AS "s"
+      ORDER BY "s"."UploadDate" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."UserId", "t"."PlaylistId", "t"."SongId", "t"."Id", "t"."Album", "t"."AlbumArtPath", "t"."Artist", "t"."Duration", "t"."FilePath", "t"."Title", "t"."UploadDate", "t"."UserId"
+      FROM "Playlists" AS "p"
+      LEFT JOIN (
+          SELECT "p0"."PlaylistId", "p0"."SongId", "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+          FROM "PlaylistSongs" AS "p0"
+          INNER JOIN "Songs" AS "s" ON "p0"."SongId" = "s"."Id"
+      ) AS "t" ON "p"."Id" = "t"."PlaylistId"
+      WHERE "p"."UserId" = @__userId_0
+      ORDER BY "p"."Id", "t"."PlaylistId", "t"."SongId"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."UserId", "t"."PlaylistId", "t"."SongId", "t"."Id", "t"."Album", "t"."AlbumArtPath", "t"."Artist", "t"."Duration", "t"."FilePath", "t"."Title", "t"."UploadDate", "t"."UserId"
+      FROM "Playlists" AS "p"
+      LEFT JOIN (
+          SELECT "p0"."PlaylistId", "p0"."SongId", "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+          FROM "PlaylistSongs" AS "p0"
+          INNER JOIN "Songs" AS "s" ON "p0"."SongId" = "s"."Id"
+      ) AS "t" ON "p"."Id" = "t"."PlaylistId"
+      WHERE "p"."UserId" = @__userId_0
+      ORDER BY "p"."Id", "t"."PlaylistId", "t"."SongId"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+      FROM "Songs" AS "s"
+      ORDER BY "s"."UploadDate" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+      FROM "Songs" AS "s"
+      ORDER BY "s"."UploadDate" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."UserId", "t"."PlaylistId", "t"."SongId", "t"."Id", "t"."Album", "t"."AlbumArtPath", "t"."Artist", "t"."Duration", "t"."FilePath", "t"."Title", "t"."UploadDate", "t"."UserId"
+      FROM "Playlists" AS "p"
+      LEFT JOIN (
+          SELECT "p0"."PlaylistId", "p0"."SongId", "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+          FROM "PlaylistSongs" AS "p0"
+          INNER JOIN "Songs" AS "s" ON "p0"."SongId" = "s"."Id"
+      ) AS "t" ON "p"."Id" = "t"."PlaylistId"
+      WHERE "p"."UserId" = @__userId_0
+      ORDER BY "p"."Id", "t"."PlaylistId", "t"."SongId"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."UserId", "t"."PlaylistId", "t"."SongId", "t"."Id", "t"."Album", "t"."AlbumArtPath", "t"."Artist", "t"."Duration", "t"."FilePath", "t"."Title", "t"."UploadDate", "t"."UserId"
+      FROM "Playlists" AS "p"
+      LEFT JOIN (
+          SELECT "p0"."PlaylistId", "p0"."SongId", "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+          FROM "PlaylistSongs" AS "p0"
+          INNER JOIN "Songs" AS "s" ON "p0"."SongId" = "s"."Id"
+      ) AS "t" ON "p"."Id" = "t"."PlaylistId"
+      WHERE "p"."UserId" = @__userId_0
+      ORDER BY "p"."Id", "t"."PlaylistId", "t"."SongId"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."UserId", "t"."PlaylistId", "t"."SongId", "t"."Id", "t"."Album", "t"."AlbumArtPath", "t"."Artist", "t"."Duration", "t"."FilePath", "t"."Title", "t"."UploadDate", "t"."UserId"
+      FROM "Playlists" AS "p"
+      LEFT JOIN (
+          SELECT "p0"."PlaylistId", "p0"."SongId", "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+          FROM "PlaylistSongs" AS "p0"
+          INNER JOIN "Songs" AS "s" ON "p0"."SongId" = "s"."Id"
+      ) AS "t" ON "p"."Id" = "t"."PlaylistId"
+      WHERE "p"."UserId" = @__userId_0
+      ORDER BY "p"."Id", "t"."PlaylistId", "t"."SongId"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."UserId", "t"."PlaylistId", "t"."SongId", "t"."Id", "t"."Album", "t"."AlbumArtPath", "t"."Artist", "t"."Duration", "t"."FilePath", "t"."Title", "t"."UploadDate", "t"."UserId"
+      FROM "Playlists" AS "p"
+      LEFT JOIN (
+          SELECT "p0"."PlaylistId", "p0"."SongId", "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+          FROM "PlaylistSongs" AS "p0"
+          INNER JOIN "Songs" AS "s" ON "p0"."SongId" = "s"."Id"
+      ) AS "t" ON "p"."Id" = "t"."PlaylistId"
+      WHERE "p"."UserId" = @__userId_0
+      ORDER BY "p"."Id", "t"."PlaylistId", "t"."SongId"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+      FROM "Songs" AS "s"
+      ORDER BY "s"."UploadDate" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+      FROM "Songs" AS "s"
+      ORDER BY "s"."UploadDate" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."UserId", "t"."PlaylistId", "t"."SongId", "t"."Id", "t"."Album", "t"."AlbumArtPath", "t"."Artist", "t"."Duration", "t"."FilePath", "t"."Title", "t"."UploadDate", "t"."UserId"
+      FROM "Playlists" AS "p"
+      LEFT JOIN (
+          SELECT "p0"."PlaylistId", "p0"."SongId", "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+          FROM "PlaylistSongs" AS "p0"
+          INNER JOIN "Songs" AS "s" ON "p0"."SongId" = "s"."Id"
+      ) AS "t" ON "p"."Id" = "t"."PlaylistId"
+      WHERE "p"."UserId" = @__userId_0
+      ORDER BY "p"."Id", "t"."PlaylistId", "t"."SongId"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."UserId", "t"."PlaylistId", "t"."SongId", "t"."Id", "t"."Album", "t"."AlbumArtPath", "t"."Artist", "t"."Duration", "t"."FilePath", "t"."Title", "t"."UploadDate", "t"."UserId"
+      FROM "Playlists" AS "p"
+      LEFT JOIN (
+          SELECT "p0"."PlaylistId", "p0"."SongId", "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+          FROM "PlaylistSongs" AS "p0"
+          INNER JOIN "Songs" AS "s" ON "p0"."SongId" = "s"."Id"
+      ) AS "t" ON "p"."Id" = "t"."PlaylistId"
+      WHERE "p"."UserId" = @__userId_0
+      ORDER BY "p"."Id", "t"."PlaylistId", "t"."SongId"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+      FROM "Songs" AS "s"
+      ORDER BY "s"."UploadDate" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+      FROM "Songs" AS "s"
+      ORDER BY "s"."UploadDate" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p0='?' (Size = 6), @p1='?', @p2='?' (Size = 4), @p3='?' (DbType = Double), @p4='?' (Size = 49), @p5='?' (Size = 8), @p6='?' (DbType = DateTime), @p7='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Songs" ("Album", "AlbumArtPath", "Artist", "Duration", "FilePath", "Title", "UploadDate", "UserId")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."UserId", "t"."PlaylistId", "t"."SongId", "t"."Id", "t"."Album", "t"."AlbumArtPath", "t"."Artist", "t"."Duration", "t"."FilePath", "t"."Title", "t"."UploadDate", "t"."UserId"
+      FROM "Playlists" AS "p"
+      LEFT JOIN (
+          SELECT "p0"."PlaylistId", "p0"."SongId", "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+          FROM "PlaylistSongs" AS "p0"
+          INNER JOIN "Songs" AS "s" ON "p0"."SongId" = "s"."Id"
+      ) AS "t" ON "p"."Id" = "t"."PlaylistId"
+      WHERE "p"."UserId" = @__userId_0
+      ORDER BY "p"."Id", "t"."PlaylistId", "t"."SongId"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."UserId", "t"."PlaylistId", "t"."SongId", "t"."Id", "t"."Album", "t"."AlbumArtPath", "t"."Artist", "t"."Duration", "t"."FilePath", "t"."Title", "t"."UploadDate", "t"."UserId"
+      FROM "Playlists" AS "p"
+      LEFT JOIN (
+          SELECT "p0"."PlaylistId", "p0"."SongId", "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+          FROM "PlaylistSongs" AS "p0"
+          INNER JOIN "Songs" AS "s" ON "p0"."SongId" = "s"."Id"
+      ) AS "t" ON "p"."Id" = "t"."PlaylistId"
+      WHERE "p"."UserId" = @__userId_0
+      ORDER BY "p"."Id", "t"."PlaylistId", "t"."SongId"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+      FROM "Songs" AS "s"
+      ORDER BY "s"."UploadDate" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+      FROM "Songs" AS "s"
+      ORDER BY "s"."UploadDate" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."UserId", "t"."PlaylistId", "t"."SongId", "t"."Id", "t"."Album", "t"."AlbumArtPath", "t"."Artist", "t"."Duration", "t"."FilePath", "t"."Title", "t"."UploadDate", "t"."UserId"
+      FROM "Playlists" AS "p"
+      LEFT JOIN (
+          SELECT "p0"."PlaylistId", "p0"."SongId", "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+          FROM "PlaylistSongs" AS "p0"
+          INNER JOIN "Songs" AS "s" ON "p0"."SongId" = "s"."Id"
+      ) AS "t" ON "p"."Id" = "t"."PlaylistId"
+      WHERE "p"."UserId" = @__userId_0
+      ORDER BY "p"."Id", "t"."PlaylistId", "t"."SongId"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."UserId", "t"."PlaylistId", "t"."SongId", "t"."Id", "t"."Album", "t"."AlbumArtPath", "t"."Artist", "t"."Duration", "t"."FilePath", "t"."Title", "t"."UploadDate", "t"."UserId"
+      FROM "Playlists" AS "p"
+      LEFT JOIN (
+          SELECT "p0"."PlaylistId", "p0"."SongId", "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+          FROM "PlaylistSongs" AS "p0"
+          INNER JOIN "Songs" AS "s" ON "p0"."SongId" = "s"."Id"
+      ) AS "t" ON "p"."Id" = "t"."PlaylistId"
+      WHERE "p"."UserId" = @__userId_0
+      ORDER BY "p"."Id", "t"."PlaylistId", "t"."SongId"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+      FROM "Songs" AS "s"
+      ORDER BY "s"."UploadDate" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+      FROM "Songs" AS "s"
+      ORDER BY "s"."UploadDate" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+      FROM "Songs" AS "s"
+      ORDER BY "s"."UploadDate" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+      FROM "Songs" AS "s"
+      ORDER BY "s"."UploadDate" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."UserId", "t"."PlaylistId", "t"."SongId", "t"."Id", "t"."Album", "t"."AlbumArtPath", "t"."Artist", "t"."Duration", "t"."FilePath", "t"."Title", "t"."UploadDate", "t"."UserId"
+      FROM "Playlists" AS "p"
+      LEFT JOIN (
+          SELECT "p0"."PlaylistId", "p0"."SongId", "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+          FROM "PlaylistSongs" AS "p0"
+          INNER JOIN "Songs" AS "s" ON "p0"."SongId" = "s"."Id"
+      ) AS "t" ON "p"."Id" = "t"."PlaylistId"
+      WHERE "p"."UserId" = @__userId_0
+      ORDER BY "p"."Id", "t"."PlaylistId", "t"."SongId"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."UserId", "t"."PlaylistId", "t"."SongId", "t"."Id", "t"."Album", "t"."AlbumArtPath", "t"."Artist", "t"."Duration", "t"."FilePath", "t"."Title", "t"."UploadDate", "t"."UserId"
+      FROM "Playlists" AS "p"
+      LEFT JOIN (
+          SELECT "p0"."PlaylistId", "p0"."SongId", "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+          FROM "PlaylistSongs" AS "p0"
+          INNER JOIN "Songs" AS "s" ON "p0"."SongId" = "s"."Id"
+      ) AS "t" ON "p"."Id" = "t"."PlaylistId"
+      WHERE "p"."UserId" = @__userId_0
+      ORDER BY "p"."Id", "t"."PlaylistId", "t"."SongId"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+      FROM "Songs" AS "s"
+      ORDER BY "s"."UploadDate" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+      FROM "Songs" AS "s"
+      ORDER BY "s"."UploadDate" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."UserId", "t"."PlaylistId", "t"."SongId", "t"."Id", "t"."Album", "t"."AlbumArtPath", "t"."Artist", "t"."Duration", "t"."FilePath", "t"."Title", "t"."UploadDate", "t"."UserId"
+      FROM "Playlists" AS "p"
+      LEFT JOIN (
+          SELECT "p0"."PlaylistId", "p0"."SongId", "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+          FROM "PlaylistSongs" AS "p0"
+          INNER JOIN "Songs" AS "s" ON "p0"."SongId" = "s"."Id"
+      ) AS "t" ON "p"."Id" = "t"."PlaylistId"
+      WHERE "p"."UserId" = @__userId_0
+      ORDER BY "p"."Id", "t"."PlaylistId", "t"."SongId"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."UserId", "t"."PlaylistId", "t"."SongId", "t"."Id", "t"."Album", "t"."AlbumArtPath", "t"."Artist", "t"."Duration", "t"."FilePath", "t"."Title", "t"."UploadDate", "t"."UserId"
+      FROM "Playlists" AS "p"
+      LEFT JOIN (
+          SELECT "p0"."PlaylistId", "p0"."SongId", "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+          FROM "PlaylistSongs" AS "p0"
+          INNER JOIN "Songs" AS "s" ON "p0"."SongId" = "s"."Id"
+      ) AS "t" ON "p"."Id" = "t"."PlaylistId"
+      WHERE "p"."UserId" = @__userId_0
+      ORDER BY "p"."Id", "t"."PlaylistId", "t"."SongId"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@p0='?' (Size = 4), @p1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Playlists" ("Name", "UserId")
+      VALUES (@p0, @p1)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."UserId", "t"."PlaylistId", "t"."SongId", "t"."Id", "t"."Album", "t"."AlbumArtPath", "t"."Artist", "t"."Duration", "t"."FilePath", "t"."Title", "t"."UploadDate", "t"."UserId"
+      FROM "Playlists" AS "p"
+      LEFT JOIN (
+          SELECT "p0"."PlaylistId", "p0"."SongId", "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+          FROM "PlaylistSongs" AS "p0"
+          INNER JOIN "Songs" AS "s" ON "p0"."SongId" = "s"."Id"
+      ) AS "t" ON "p"."Id" = "t"."PlaylistId"
+      WHERE "p"."UserId" = @__userId_0
+      ORDER BY "p"."Id", "t"."PlaylistId", "t"."SongId"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+      FROM "Songs" AS "s"
+      ORDER BY "s"."UploadDate" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+      FROM "Songs" AS "s"
+      ORDER BY "s"."UploadDate" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+      FROM "Songs" AS "s"
+      ORDER BY "s"."UploadDate" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+      FROM "Songs" AS "s"
+      ORDER BY "s"."UploadDate" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."UserId", "t"."PlaylistId", "t"."SongId", "t"."Id", "t"."Album", "t"."AlbumArtPath", "t"."Artist", "t"."Duration", "t"."FilePath", "t"."Title", "t"."UploadDate", "t"."UserId"
+      FROM "Playlists" AS "p"
+      LEFT JOIN (
+          SELECT "p0"."PlaylistId", "p0"."SongId", "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+          FROM "PlaylistSongs" AS "p0"
+          INNER JOIN "Songs" AS "s" ON "p0"."SongId" = "s"."Id"
+      ) AS "t" ON "p"."Id" = "t"."PlaylistId"
+      WHERE "p"."UserId" = @__userId_0
+      ORDER BY "p"."Id", "t"."PlaylistId", "t"."SongId"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."UserId", "t"."PlaylistId", "t"."SongId", "t"."Id", "t"."Album", "t"."AlbumArtPath", "t"."Artist", "t"."Duration", "t"."FilePath", "t"."Title", "t"."UploadDate", "t"."UserId"
+      FROM "Playlists" AS "p"
+      LEFT JOIN (
+          SELECT "p0"."PlaylistId", "p0"."SongId", "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+          FROM "PlaylistSongs" AS "p0"
+          INNER JOIN "Songs" AS "s" ON "p0"."SongId" = "s"."Id"
+      ) AS "t" ON "p"."Id" = "t"."PlaylistId"
+      WHERE "p"."UserId" = @__userId_0
+      ORDER BY "p"."Id", "t"."PlaylistId", "t"."SongId"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+      FROM "Songs" AS "s"
+      ORDER BY "s"."UploadDate" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+      FROM "Songs" AS "s"
+      ORDER BY "s"."UploadDate" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+      FROM "Songs" AS "s"
+      ORDER BY "s"."UploadDate" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+      FROM "Songs" AS "s"
+      ORDER BY "s"."UploadDate" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."UserId", "t"."PlaylistId", "t"."SongId", "t"."Id", "t"."Album", "t"."AlbumArtPath", "t"."Artist", "t"."Duration", "t"."FilePath", "t"."Title", "t"."UploadDate", "t"."UserId"
+      FROM "Playlists" AS "p"
+      LEFT JOIN (
+          SELECT "p0"."PlaylistId", "p0"."SongId", "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+          FROM "PlaylistSongs" AS "p0"
+          INNER JOIN "Songs" AS "s" ON "p0"."SongId" = "s"."Id"
+      ) AS "t" ON "p"."Id" = "t"."PlaylistId"
+      WHERE "p"."UserId" = @__userId_0
+      ORDER BY "p"."Id", "t"."PlaylistId", "t"."SongId"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."UserId", "t"."PlaylistId", "t"."SongId", "t"."Id", "t"."Album", "t"."AlbumArtPath", "t"."Artist", "t"."Duration", "t"."FilePath", "t"."Title", "t"."UploadDate", "t"."UserId"
+      FROM "Playlists" AS "p"
+      LEFT JOIN (
+          SELECT "p0"."PlaylistId", "p0"."SongId", "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+          FROM "PlaylistSongs" AS "p0"
+          INNER JOIN "Songs" AS "s" ON "p0"."SongId" = "s"."Id"
+      ) AS "t" ON "p"."Id" = "t"."PlaylistId"
+      WHERE "p"."UserId" = @__userId_0
+      ORDER BY "p"."Id", "t"."PlaylistId", "t"."SongId"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+      FROM "Songs" AS "s"
+      ORDER BY "s"."UploadDate" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+      FROM "Songs" AS "s"
+      ORDER BY "s"."UploadDate" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."UserId", "t"."PlaylistId", "t"."SongId", "t"."Id", "t"."Album", "t"."AlbumArtPath", "t"."Artist", "t"."Duration", "t"."FilePath", "t"."Title", "t"."UploadDate", "t"."UserId"
+      FROM "Playlists" AS "p"
+      LEFT JOIN (
+          SELECT "p0"."PlaylistId", "p0"."SongId", "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+          FROM "PlaylistSongs" AS "p0"
+          INNER JOIN "Songs" AS "s" ON "p0"."SongId" = "s"."Id"
+      ) AS "t" ON "p"."Id" = "t"."PlaylistId"
+      WHERE "p"."UserId" = @__userId_0
+      ORDER BY "p"."Id", "t"."PlaylistId", "t"."SongId"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."UserId", "t"."PlaylistId", "t"."SongId", "t"."Id", "t"."Album", "t"."AlbumArtPath", "t"."Artist", "t"."Duration", "t"."FilePath", "t"."Title", "t"."UploadDate", "t"."UserId"
+      FROM "Playlists" AS "p"
+      LEFT JOIN (
+          SELECT "p0"."PlaylistId", "p0"."SongId", "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+          FROM "PlaylistSongs" AS "p0"
+          INNER JOIN "Songs" AS "s" ON "p0"."SongId" = "s"."Id"
+      ) AS "t" ON "p"."Id" = "t"."PlaylistId"
+      WHERE "p"."UserId" = @__userId_0
+      ORDER BY "p"."Id", "t"."PlaylistId", "t"."SongId"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+      FROM "Songs" AS "s"
+      ORDER BY "s"."UploadDate" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+      FROM "Songs" AS "s"
+      ORDER BY "s"."UploadDate" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+      FROM "Songs" AS "s"
+      ORDER BY "s"."UploadDate" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+      FROM "Songs" AS "s"
+      ORDER BY "s"."UploadDate" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."UserId", "t"."PlaylistId", "t"."SongId", "t"."Id", "t"."Album", "t"."AlbumArtPath", "t"."Artist", "t"."Duration", "t"."FilePath", "t"."Title", "t"."UploadDate", "t"."UserId"
+      FROM "Playlists" AS "p"
+      LEFT JOIN (
+          SELECT "p0"."PlaylistId", "p0"."SongId", "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+          FROM "PlaylistSongs" AS "p0"
+          INNER JOIN "Songs" AS "s" ON "p0"."SongId" = "s"."Id"
+      ) AS "t" ON "p"."Id" = "t"."PlaylistId"
+      WHERE "p"."UserId" = @__userId_0
+      ORDER BY "p"."Id", "t"."PlaylistId", "t"."SongId"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."UserId", "t"."PlaylistId", "t"."SongId", "t"."Id", "t"."Album", "t"."AlbumArtPath", "t"."Artist", "t"."Duration", "t"."FilePath", "t"."Title", "t"."UploadDate", "t"."UserId"
+      FROM "Playlists" AS "p"
+      LEFT JOIN (
+          SELECT "p0"."PlaylistId", "p0"."SongId", "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+          FROM "PlaylistSongs" AS "p0"
+          INNER JOIN "Songs" AS "s" ON "p0"."SongId" = "s"."Id"
+      ) AS "t" ON "p"."Id" = "t"."PlaylistId"
+      WHERE "p"."UserId" = @__userId_0
+      ORDER BY "p"."Id", "t"."PlaylistId", "t"."SongId"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."UserId", "t"."PlaylistId", "t"."SongId", "t"."Id", "t"."Album", "t"."AlbumArtPath", "t"."Artist", "t"."Duration", "t"."FilePath", "t"."Title", "t"."UploadDate", "t"."UserId"
+      FROM "Playlists" AS "p"
+      LEFT JOIN (
+          SELECT "p0"."PlaylistId", "p0"."SongId", "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+          FROM "PlaylistSongs" AS "p0"
+          INNER JOIN "Songs" AS "s" ON "p0"."SongId" = "s"."Id"
+      ) AS "t" ON "p"."Id" = "t"."PlaylistId"
+      WHERE "p"."UserId" = @__userId_0
+      ORDER BY "p"."Id", "t"."PlaylistId", "t"."SongId"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."UserId", "t"."PlaylistId", "t"."SongId", "t"."Id", "t"."Album", "t"."AlbumArtPath", "t"."Artist", "t"."Duration", "t"."FilePath", "t"."Title", "t"."UploadDate", "t"."UserId"
+      FROM "Playlists" AS "p"
+      LEFT JOIN (
+          SELECT "p0"."PlaylistId", "p0"."SongId", "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+          FROM "PlaylistSongs" AS "p0"
+          INNER JOIN "Songs" AS "s" ON "p0"."SongId" = "s"."Id"
+      ) AS "t" ON "p"."Id" = "t"."PlaylistId"
+      WHERE "p"."UserId" = @__userId_0
+      ORDER BY "p"."Id", "t"."PlaylistId", "t"."SongId"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+      FROM "Songs" AS "s"
+      ORDER BY "s"."UploadDate" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+      FROM "Songs" AS "s"
+      ORDER BY "s"."UploadDate" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."UserId", "t"."PlaylistId", "t"."SongId", "t"."Id", "t"."Album", "t"."AlbumArtPath", "t"."Artist", "t"."Duration", "t"."FilePath", "t"."Title", "t"."UploadDate", "t"."UserId"
+      FROM "Playlists" AS "p"
+      LEFT JOIN (
+          SELECT "p0"."PlaylistId", "p0"."SongId", "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+          FROM "PlaylistSongs" AS "p0"
+          INNER JOIN "Songs" AS "s" ON "p0"."SongId" = "s"."Id"
+      ) AS "t" ON "p"."Id" = "t"."PlaylistId"
+      WHERE "p"."UserId" = @__userId_0
+      ORDER BY "p"."Id", "t"."PlaylistId", "t"."SongId"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."UserId", "t"."PlaylistId", "t"."SongId", "t"."Id", "t"."Album", "t"."AlbumArtPath", "t"."Artist", "t"."Duration", "t"."FilePath", "t"."Title", "t"."UploadDate", "t"."UserId"
+      FROM "Playlists" AS "p"
+      LEFT JOIN (
+          SELECT "p0"."PlaylistId", "p0"."SongId", "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+          FROM "PlaylistSongs" AS "p0"
+          INNER JOIN "Songs" AS "s" ON "p0"."SongId" = "s"."Id"
+      ) AS "t" ON "p"."Id" = "t"."PlaylistId"
+      WHERE "p"."UserId" = @__userId_0
+      ORDER BY "p"."Id", "t"."PlaylistId", "t"."SongId"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."UserId", "t"."PlaylistId", "t"."SongId", "t"."Id", "t"."Album", "t"."AlbumArtPath", "t"."Artist", "t"."Duration", "t"."FilePath", "t"."Title", "t"."UploadDate", "t"."UserId"
+      FROM "Playlists" AS "p"
+      LEFT JOIN (
+          SELECT "p0"."PlaylistId", "p0"."SongId", "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+          FROM "PlaylistSongs" AS "p0"
+          INNER JOIN "Songs" AS "s" ON "p0"."SongId" = "s"."Id"
+      ) AS "t" ON "p"."Id" = "t"."PlaylistId"
+      WHERE "p"."UserId" = @__userId_0
+      ORDER BY "p"."Id", "t"."PlaylistId", "t"."SongId"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."UserId", "t"."PlaylistId", "t"."SongId", "t"."Id", "t"."Album", "t"."AlbumArtPath", "t"."Artist", "t"."Duration", "t"."FilePath", "t"."Title", "t"."UploadDate", "t"."UserId"
+      FROM "Playlists" AS "p"
+      LEFT JOIN (
+          SELECT "p0"."PlaylistId", "p0"."SongId", "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+          FROM "PlaylistSongs" AS "p0"
+          INNER JOIN "Songs" AS "s" ON "p0"."SongId" = "s"."Id"
+      ) AS "t" ON "p"."Id" = "t"."PlaylistId"
+      WHERE "p"."UserId" = @__userId_0
+      ORDER BY "p"."Id", "t"."PlaylistId", "t"."SongId"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+      FROM "Songs" AS "s"
+      ORDER BY "s"."UploadDate" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."Id", "s"."Album", "s"."AlbumArtPath", "s"."Artist", "s"."Duration", "s"."FilePath", "s"."Title", "s"."UploadDate", "s"."UserId"
+      FROM "Songs" AS "s"
+      ORDER BY "s"."UploadDate" DESC

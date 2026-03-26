@@ -1,0 +1,13 @@
+
+> frontend@0.0.0 dev
+> vite
+
+
+  VITE v7.3.1  ready in 97 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+  ➜  press h + enter to show help
+7:09:34 PM [vite] (client) hmr update /src/pages/Register.tsx, /src/context/PlayerContext.tsx, /src/pages/Login.tsx, /src/pages/Search.tsx, /src/pages/Home.tsx, /src/pages/Playlists.tsx, /src/pages/Upload.tsx, /src/components/PlayerBar.tsx
+7:09:34 PM [vite] (client) hmr invalidate /src/context/PlayerContext.tsx Could not Fast Refresh ("usePlayer" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+7:09:34 PM [vite] (client) hmr update /src/App.tsx, /src/pages/Search.tsx, /src/pages/Home.tsx, /src/pages/Playlists.tsx, /src/components/PlayerBar.tsx

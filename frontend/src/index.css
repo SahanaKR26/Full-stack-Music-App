@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #6b59f3;
+  --color-background-light: #f6f6f8;
+  --color-background-dark: #0F0F14;
+  --color-panel-dark: #16161E;
+  --color-card-dark: #1E1E2A;
+
+  --font-display: 'Inter', sans-serif;
+  --font-sans: 'Inter', sans-serif;
+}
+
+@layer base {
+  :root {
+    --bg-primary: #0F0F14;
+    --bg-secondary: #16161E;
+    --bg-glass: rgba(25, 25, 30, 0.6);
+    --border-glass: rgba(255, 255, 255, 0.08);
+    --accent-primary: #6b59f3;
+    --accent-hover: rgba(107, 89, 243, 0.9);
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --player-bg: rgba(15, 15, 20, 0.85);
+
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  body {
+    font-family: var(--font-family);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow: hidden;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    background: var(--bg-glass);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border-glass);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #a855f7 0%, #6b59f3 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #272348;
+    border-radius: 10px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-primary);
+  }
+}
+
+@layer components {
+  button {
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  button:active {
+    transform: scale(0.97);
+  }
+
+  input {
+    font-family: inherit;
+  }
+}

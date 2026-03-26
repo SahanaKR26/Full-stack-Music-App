@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Groovvy Admin - Manage Users</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#6b59f3",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#0F0F14",
+                        "card-dark": "#1E1E27",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-card {
+            background: rgba(30, 30, 39, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex">
+<aside class="w-72 border-r border-slate-200 dark:border-slate-800 flex flex-col fixed h-full bg-background-light dark:bg-background-dark z-50">
+<div class="p-6 flex items-center gap-3">
+<div class="size-10 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined">database</span>
+</div>
+<h1 class="text-xl font-bold tracking-tight">Groovvy</h1>
+</div>
+<nav class="flex-1 px-4 py-2 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-primary/10 text-primary rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-medium">Manage Users</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">library_music</span>
+<span class="font-medium">Content Library</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">bar_chart</span>
+<span class="font-medium">Analytics</span>
+</a>
+<div class="pt-4 pb-2 px-4 text-xs font-semibold text-slate-400 uppercase tracking-wider">System</div>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-medium">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">security</span>
+<span class="font-medium">Audit Logs</span>
+</a>
+</nav>
+<div class="p-4 border-t border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-3 p-2">
+<img class="size-10 rounded-full border-2 border-primary/20" data-alt="Admin user profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLBB3hUXhyjDDjTiA1AxL7FMuRmppqHAW9dMOJFbg87ovUgwV6R3ubtvffmcx_CUfHV2EqCBgBFaXQ0ECvzeFPAlXPSZi06cyhS15rZW_3R4cmbwyrz3HvQrFFzhBh9WA0T2ULPkBXuJUgvSSKP_8y0dDzKm-7YiEMP6RABA7oOIqWL6PgUQdNzEJ7bgXHb9geYTW_O6tSocuB4BaCjdjZxHDt8bZbPjB9SZ6HFKg1kfR6IPH-8o9k1ngLzur_7BZQ8hTi9DOzA3c"/>
+<div class="flex flex-col">
+<span class="text-sm font-semibold">Alex Rivera</span>
+<span class="text-xs text-slate-500">Super Admin</span>
+</div>
+</div>
+</div>
+</aside>
+<main class="flex-1 ml-72">
+<header class="h-20 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-8 sticky top-0 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md z-40">
+<div class="flex-1 max-w-xl">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="w-full bg-slate-100 dark:bg-slate-800/50 border-none rounded-xl py-2.5 pl-10 pr-4 text-sm focus:ring-2 focus:ring-primary/50 transition-all" placeholder="Search users by name, email or role..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="size-10 flex items-center justify-center rounded-full text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 size-2 bg-red-500 rounded-full border-2 border-background-dark"></span>
+</button>
+<button class="flex items-center gap-2 bg-primary text-white px-4 py-2 rounded-lg font-semibold text-sm hover:opacity-90 transition-all">
+<span class="material-symbols-outlined text-[18px]">person_add</span>
+                    Add New User
+                </button>
+</div>
+</header>
+<div class="p-8">
+<div class="mb-8">
+<h2 class="text-3xl font-black tracking-tight mb-2">Manage Users</h2>
+<p class="text-slate-500 dark:text-slate-400">Administration panel for platform user directory and permissions management.</p>
+</div>
+<div class="glass-card rounded-2xl overflow-hidden shadow-2xl">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-slate-50/50 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-800">
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500">User</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500">Email</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500">Role</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500">Subscription</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500 text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-200 dark:divide-slate-800">
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img class="size-10 rounded-full bg-slate-200" data-alt="User profile avatar Jordan" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrWH99bdIRPSsgFpGP4LnrWpFK1hWx5A5xxVhw3hrKsU6YrUwGBJrVzusmtO0-ZTQGnHMcxDl8Yk_Hg83hS1I1aZy-sTe3FzlE8NvpXRIX_OdcbbA4TRYMSCjP9ihR2dSKWqUCTA4OU248TJvQqqQbB0UA7BhnNF7CzlQrDzDBeazH-H1rcJRzJAIRNqeaiijGYR_BSwZMqma-nB8lgQVixlrRsWwMPwbKMMTB50H8w8deR9wFBxy8rBZpMKLQQo3xzq_9d8C8cKA"/>
+<span class="font-semibold text-sm">Jordan Smith</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-slate-500 dark:text-slate-400">j.smith@groovvy.com</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-amber-500/10 text-amber-500 border border-amber-500/20">Artist</span>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-primary/10 text-primary border border-primary/20">Premium</span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="size-8 flex items-center justify-center rounded-lg hover:bg-primary/10 hover:text-primary transition-all text-slate-400" title="Edit User">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="size-8 flex items-center justify-center rounded-lg hover:bg-amber-500/10 hover:text-amber-500 transition-all text-slate-400" title="Suspend User">
+<span class="material-symbols-outlined text-[18px]">block</span>
+</button>
+<button class="size-8 flex items-center justify-center rounded-lg hover:bg-red-500/10 hover:text-red-500 transition-all text-slate-400" title="Delete User">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img class="size-10 rounded-full bg-slate-200" data-alt="User profile avatar Sam" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0cuD3vo_aJqTtHxaexIcV-yZ1yb6nmsfWyR-ol3zBAD7lBxjD7ya3gTGdzr9NDAH_aw78HBvHPtox26jM2_kvuM2fzAbot2BP6a1cdSeLL1RFQ9VGabodL7avCBNmBArthgr458vzSde88kAAPTb8UlZ9bGhW_m05mP2SM90cUvhKkqElebmiArLYWivMG8OrD6vY5fT8er5vlbcBCs8t4MMQj99gYumfVCL5LNdXOsAuAyiJuqBEqt-cuV20Ka1xpDZnXhfaZI8"/>
+<span class="font-semibold text-sm">Sam Taylor</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-slate-500 dark:text-slate-400">sam.t@web.com</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-slate-500/10 text-slate-500 border border-slate-500/20">User</span>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-slate-500/10 text-slate-500 border border-slate-500/20">Free</span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="size-8 flex items-center justify-center rounded-lg hover:bg-primary/10 hover:text-primary transition-all text-slate-400" title="Edit User">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="size-8 flex items-center justify-center rounded-lg hover:bg-amber-500/10 hover:text-amber-500 transition-all text-slate-400" title="Suspend User">
+<span class="material-symbols-outlined text-[18px]">block</span>
+</button>
+<button class="size-8 flex items-center justify-center rounded-lg hover:bg-red-500/10 hover:text-red-500 transition-all text-slate-400" title="Delete User">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img class="size-10 rounded-full bg-slate-200" data-alt="User profile avatar Casey" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHU153WUGvsxuQw7GwwUzdjIXBHzr3iO7KOc6vUTtgDSBLQWNZYYVxtUzKXn7SUVCSVDJ45vuXc7vqZFFrB6u1glFfOTgVNjSo1ZhdBKbupAJU5CyVL2ZgH2aTPD3TiirvJspn7LZqdcohuIOPKVbZ7-0nlIHpzF4mO6FMWdOMOqnniGIeP9bEu1_0Uq6u_8fPmkYkmjVK9gvktu6QrScTJlPy4Z8LAmIANS50SLXQIZvoNSBEDhgpoVq2y7PlrWtRz_adm1MTtsE"/>
+<span class="font-semibold text-sm">Casey Chen</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-slate-500 dark:text-slate-400">casey.c@music.io</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-slate-500/10 text-slate-500 border border-slate-500/20">User</span>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-primary/10 text-primary border border-primary/20">Premium</span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="size-8 flex items-center justify-center rounded-lg hover:bg-primary/10 hover:text-primary transition-all text-slate-400" title="Edit User">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="size-8 flex items-center justify-center rounded-lg hover:bg-amber-500/10 hover:text-amber-500 transition-all text-slate-400" title="Suspend User">
+<span class="material-symbols-outlined text-[18px]">block</span>
+</button>
+<button class="size-8 flex items-center justify-center rounded-lg hover:bg-red-500/10 hover:text-red-500 transition-all text-slate-400" title="Delete User">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img class="size-10 rounded-full bg-slate-200" data-alt="User profile avatar Riley" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCu3Du7LzOJXgZc5QnaMaUhmvy97KPo9x-dg83TCDehgftE-2BwihISSI5cP5dC0Qv4lciQStkpW04iOyVk8M77TsG4QmetdD2Tk9WMSler2VEKdWKuAXAK8VBrBkzwj_B0krYgEJIJhCpJlxoDJkeR_N15Y_XXbph6CYBj2jXFSQ6GG4aCXNFJMrBtdPk0wXh3eGEQ8dyQ_L2APKP-sukL6_tC3ItJP2e2EliR7OMqORqV-cwW7awn53KA6AWcQ0PmXZlwok31KMQ"/>
+<span class="font-semibold text-sm">Riley Parker</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-slate-500 dark:text-slate-400">riley.p@admin.net</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">Admin</span>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-primary/10 text-primary border border-primary/20">Premium</span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="size-8 flex items-center justify-center rounded-lg hover:bg-primary/10 hover:text-primary transition-all text-slate-400" title="Edit User">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="size-8 flex items-center justify-center rounded-lg hover:bg-amber-500/10 hover:text-amber-500 transition-all text-slate-400" title="Suspend User">
+<span class="material-symbols-outlined text-[18px]">block</span>
+</button>
+<button class="size-8 flex items-center justify-center rounded-lg hover:bg-red-500/10 hover:text-red-500 transition-all text-slate-400" disabled="" title="Delete User">
+<span class="material-symbols-outlined text-[18px] opacity-20">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img class="size-10 rounded-full bg-slate-200" data-alt="User profile avatar Morgan" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEDMb_hwM5fM-sT36uQnDBUawHN1wXu3-cnbfDMMjZj844fok3ZBN3dlorAaJbq3lo0AHjqeSXC_2Aam1htb0OUgF5hu7DMiuQL6wi6DEajX-NAvJtETBJh8nMhGApEs0IvtjXvcP1AGTEQ8qK3EhHe8Gvy02m7oRTjfgfoWvk9gUzZ4QuDeFBWYXLehXEPJq0i4OGIDiisN6aqCCj0Sr92Csk5tb_XSpMXVfUFsg4rEE9V8almvtgR3caKALnMjFQCd2PdNVbKa0"/>
+<span class="font-semibold text-sm">Morgan Grey</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-slate-500 dark:text-slate-400">m.grey@beats.com</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-amber-500/10 text-amber-500 border border-amber-500/20">Artist</span>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-primary/10 text-primary border border-primary/20">Premium</span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="size-8 flex items-center justify-center rounded-lg hover:bg-primary/10 hover:text-primary transition-all text-slate-400" title="Edit User">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="size-8 flex items-center justify-center rounded-lg hover:bg-amber-500/10 hover:text-amber-500 transition-all text-slate-400" title="Suspend User">
+<span class="material-symbols-outlined text-[18px]">block</span>
+</button>
+<button class="size-8 flex items-center justify-center rounded-lg hover:bg-red-500/10 hover:text-red-500 transition-all text-slate-400" title="Delete User">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="flex items-center justify-between p-6 border-t border-slate-200 dark:border-slate-800">
+<p class="text-sm text-slate-500">Showing 1 to 5 of 1,240 users</p>
+<div class="flex items-center gap-1">
+<button class="size-10 flex items-center justify-center rounded-lg border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all disabled:opacity-30" disabled="">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="size-10 flex items-center justify-center rounded-lg bg-primary text-white font-bold text-sm">1</button>
+<button class="size-10 flex items-center justify-center rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-sm transition-all">2</button>
+<button class="size-10 flex items-center justify-center rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-sm transition-all">3</button>
+<span class="px-2 text-slate-500">...</span>
+<button class="size-10 flex items-center justify-center rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-sm transition-all">248</button>
+<button class="size-10 flex items-center justify-center rounded-lg border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

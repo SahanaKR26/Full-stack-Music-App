@@ -1,0 +1,19 @@
+{
+  "Version": 1,
+  "Hash": "caolm1E9kbgu29HIRd/5prV32pWUD0E5yut7KdxU6xo=",
+  "Source": "backend",
+  "BasePath": "_content/backend",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "backend/wwwroot",
+      "Source": "backend",
+      "ContentRoot": "/Users/venkataravindrapv/music app/backend/wwwroot/",
+      "BasePath": "_content/backend",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": []
+}

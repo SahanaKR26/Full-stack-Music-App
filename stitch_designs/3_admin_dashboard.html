@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#6b59f3",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#121022",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<title>Groovvy Admin Dashboard</title>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 selection:bg-primary/30">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Header -->
+<header class="sticky top-0 z-50 flex items-center justify-between border-b border-slate-200 dark:border-primary/20 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-6 py-3 lg:px-10">
+<div class="flex items-center gap-4">
+<div class="flex items-center justify-center size-10 rounded-xl bg-primary text-white">
+<span class="material-symbols-outlined">database</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-xl font-bold tracking-tight">Groovvy</h2>
+</div>
+<div class="flex flex-1 justify-end items-center gap-4 lg:gap-6">
+<label class="hidden md:flex flex-col min-w-40 max-w-64 w-full">
+<div class="flex items-stretch rounded-xl bg-slate-100 dark:bg-primary/10 border border-transparent focus-within:border-primary/50 transition-all h-10">
+<div class="flex items-center justify-center pl-4 text-slate-500 dark:text-primary/70">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</div>
+<input class="w-full border-none bg-transparent focus:ring-0 text-sm placeholder:text-slate-400 dark:placeholder:text-primary/40 px-3" placeholder="Search analytics..." type="text"/>
+</div>
+</label>
+<div class="flex items-center gap-2">
+<button class="flex items-center justify-center rounded-xl size-10 bg-slate-100 dark:bg-primary/10 text-slate-600 dark:text-primary hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[22px]">notifications</span>
+</button>
+<button class="flex items-center justify-center rounded-xl size-10 bg-slate-100 dark:bg-primary/10 text-slate-600 dark:text-primary hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[22px]">settings</span>
+</button>
+<div class="ml-2 h-10 w-10 rounded-full border-2 border-primary/30 bg-cover bg-center" data-alt="Administrator user profile avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD-eZ2n_foku5sN36ehXHQACWK50GNy1VPl6eaDryQrVpyKc62K7IB8wxEhv2ccy24TK3syOgyEj3COO3zdHNGoDyp7WLDnDqiNpmWco4GXbmnoyfpwlO6fpXjvimhUfMdubvIKMhWJm_C7L8O-NBdGArXakd_U13J3qjS3oB8bpLphRESsP0UZpdiRCwoc5mc0bmgMatisoFgdk3SQA1p2j3dBWafKUko4eGFMbduoQKhUexd3zOXfWNwBWsu7ByfK6YTu_EZtcas");'></div>
+</div>
+</div>
+</header>
+<div class="flex flex-1 flex-col lg:flex-row">
+<!-- Sidebar -->
+<aside class="w-full lg:w-64 border-r border-slate-200 dark:border-primary/10 bg-white/50 dark:bg-background-dark/50 p-4 space-y-2">
+<div class="px-3 py-2 text-xs font-bold uppercase tracking-widest text-slate-400 dark:text-primary/40">Menu</div>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-xl bg-primary text-white font-medium shadow-lg shadow-primary/20" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-primary/10 transition-colors" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+<span>Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-primary/10 transition-colors" href="#">
+<span class="material-symbols-outlined">group</span>
+<span>Users</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-primary/10 transition-colors" href="#">
+<span class="material-symbols-outlined">mic_external_on</span>
+<span>Artists</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-primary/10 transition-colors" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span>Revenue</span>
+</a>
+</nav>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 p-6 lg:p-10 space-y-8 max-w-7xl mx-auto w-full">
+<!-- Hero Welcome -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div class="space-y-1">
+<h1 class="text-3xl lg:text-4xl font-black tracking-tight text-slate-900 dark:text-white">Dashboard Overview</h1>
+<p class="text-slate-500 dark:text-primary/60">Welcome back, Groovvy Admin. Here's your platform status.</p>
+</div>
+<button class="flex items-center justify-center gap-2 bg-primary text-white px-5 py-2.5 rounded-xl font-semibold shadow-xl shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all">
+<span class="material-symbols-outlined">download</span>
+                    Export Report
+                </button>
+</div>
+<!-- Stats Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
+<!-- User Stat -->
+<div class="relative group overflow-hidden rounded-xl p-6 border border-slate-200 dark:border-primary/10 bg-white/80 dark:bg-primary/5 backdrop-blur-sm">
+<div class="absolute top-0 right-0 p-4 opacity-10 text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-6xl">group</span>
+</div>
+<p class="text-slate-500 dark:text-primary/60 font-medium">Total Users</p>
+<div class="flex items-baseline gap-2 mt-2">
+<h3 class="text-3xl font-bold text-slate-900 dark:text-white">2.4M</h3>
+<span class="text-emerald-500 text-sm font-bold flex items-center">
+<span class="material-symbols-outlined text-xs">trending_up</span> 12%
+                        </span>
+</div>
+</div>
+<!-- Streams Stat -->
+<div class="relative group overflow-hidden rounded-xl p-6 border border-slate-200 dark:border-primary/10 bg-white/80 dark:bg-primary/5 backdrop-blur-sm">
+<div class="absolute top-0 right-0 p-4 opacity-10 text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-6xl">play_circle</span>
+</div>
+<p class="text-slate-500 dark:text-primary/60 font-medium">Total Streams</p>
+<div class="flex items-baseline gap-2 mt-2">
+<h3 class="text-3xl font-bold text-slate-900 dark:text-white">128.5M</h3>
+<span class="text-emerald-500 text-sm font-bold flex items-center">
+<span class="material-symbols-outlined text-xs">trending_up</span> 8%
+                        </span>
+</div>
+</div>
+<!-- Revenue Stat -->
+<div class="relative group overflow-hidden rounded-xl p-6 border border-slate-200 dark:border-primary/10 bg-white/80 dark:bg-primary/5 backdrop-blur-sm">
+<div class="absolute top-0 right-0 p-4 opacity-10 text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-6xl">account_balance_wallet</span>
+</div>
+<p class="text-slate-500 dark:text-primary/60 font-medium">Revenue</p>
+<div class="flex items-baseline gap-2 mt-2">
+<h3 class="text-3xl font-bold text-slate-900 dark:text-white">$450K</h3>
+<span class="text-emerald-500 text-sm font-bold flex items-center">
+<span class="material-symbols-outlined text-xs">trending_up</span> 15%
+                        </span>
+</div>
+</div>
+<!-- Artists Stat -->
+<div class="relative group overflow-hidden rounded-xl p-6 border border-slate-200 dark:border-primary/10 bg-white/80 dark:bg-primary/5 backdrop-blur-sm">
+<div class="absolute top-0 right-0 p-4 opacity-10 text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-6xl">artist</span>
+</div>
+<p class="text-slate-500 dark:text-primary/60 font-medium">Active Artists</p>
+<div class="flex items-baseline gap-2 mt-2">
+<h3 class="text-3xl font-bold text-slate-900 dark:text-white">12.5K</h3>
+<span class="text-rose-500 text-sm font-bold flex items-center">
+<span class="material-symbols-outlined text-xs">trending_down</span> 2%
+                        </span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Main Chart -->
+<div class="lg:col-span-2 space-y-4 rounded-xl border border-slate-200 dark:border-primary/10 bg-white/50 dark:bg-primary/5 p-6 backdrop-blur-sm">
+<div class="flex items-center justify-between">
+<div>
+<h4 class="text-lg font-bold text-slate-900 dark:text-white">Streaming Trends</h4>
+<p class="text-sm text-slate-500 dark:text-primary/60">Weekly play counts (millions)</p>
+</div>
+<select class="bg-slate-100 dark:bg-primary/20 border-none rounded-lg text-xs font-bold text-slate-600 dark:text-primary/80 focus:ring-primary">
+<option>Last 7 Days</option>
+<option>Last 30 Days</option>
+</select>
+</div>
+<div class="pt-6 h-[240px] w-full">
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 400 120">
+<defs>
+<lineargradient id="chartGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#6b59f3" stop-opacity="0.3"></stop>
+<stop offset="100%" stop-color="#6b59f3" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<path d="M0,100 Q40,40 80,80 T160,20 T240,60 T320,40 T400,10 L400,120 L0,120 Z" fill="url(#chartGradient)"></path>
+<path d="M0,100 Q40,40 80,80 T160,20 T240,60 T320,40 T400,10" fill="none" stroke="#6b59f3" stroke-linecap="round" stroke-width="3"></path>
+</svg>
+</div>
+<div class="flex justify-between text-xs font-bold text-slate-400 dark:text-primary/40 uppercase tracking-tighter">
+<span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+</div>
+</div>
+<!-- Recent Activity Feed -->
+<div class="space-y-4 rounded-xl border border-slate-200 dark:border-primary/10 bg-white/50 dark:bg-primary/5 p-6 backdrop-blur-sm">
+<h4 class="text-lg font-bold text-slate-900 dark:text-white">Recent Activity</h4>
+<div class="space-y-6">
+<div class="flex gap-4">
+<div class="flex-none size-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">person_add</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<p class="text-sm font-medium"><span class="text-primary font-bold">New Artist</span> "Lunar Pulse" joined.</p>
+<span class="text-xs text-slate-500 dark:text-primary/40">2 mins ago</span>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex-none size-10 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-500">
+<span class="material-symbols-outlined text-[20px]">check_circle</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<p class="text-sm font-medium">Payout of <span class="text-emerald-500 font-bold">$1,200</span> processed.</p>
+<span class="text-xs text-slate-500 dark:text-primary/40">45 mins ago</span>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex-none size-10 rounded-full bg-amber-500/20 flex items-center justify-center text-amber-500">
+<span class="material-symbols-outlined text-[20px]">warning</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<p class="text-sm font-medium">Server load exceeded <span class="text-amber-500 font-bold">85%</span>.</p>
+<span class="text-xs text-slate-500 dark:text-primary/40">2 hours ago</span>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex-none size-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">star</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<p class="text-sm font-medium"><span class="text-primary font-bold">100k streams</span> reached on "Nebula".</p>
+<span class="text-xs text-slate-500 dark:text-primary/40">5 hours ago</span>
+</div>
+</div>
+</div>
+<button class="w-full py-2.5 text-sm font-bold text-primary hover:bg-primary/10 rounded-lg transition-colors mt-2">
+                        View All Activity
+                    </button>
+</div>
+</div>
+<!-- Revenue Detailed Chart (Inline Card) -->
+<div class="rounded-xl border border-slate-200 dark:border-primary/10 bg-gradient-to-br from-primary to-primary/60 p-8 text-white relative overflow-hidden group">
+<div class="absolute -right-16 -bottom-16 size-64 bg-white/10 rounded-full blur-3xl group-hover:scale-110 transition-transform"></div>
+<div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="space-y-2 text-center md:text-left">
+<p class="text-primary-100/80 font-medium uppercase tracking-widest text-xs">Platform Health</p>
+<h2 class="text-3xl font-black">Revenue is up 24% this month</h2>
+<p class="text-primary-100/70 max-w-md">Your strategies are working! Most growth is coming from premium subscription renewals in European markets.</p>
+</div>
+<div class="flex gap-4">
+<button class="bg-white text-primary px-6 py-3 rounded-xl font-bold shadow-lg hover:bg-slate-50 transition-colors">See Details</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>

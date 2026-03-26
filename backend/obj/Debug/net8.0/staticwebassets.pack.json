@@ -1,0 +1,41 @@
+{
+  "Files": [
+    {
+      "Id": "/Users/venkataravindrapv/music app/backend/wwwroot/Uploads/18ce886d-1920-4f75-bc42-ad3643bd20d3.mp3",
+      "PackagePath": "staticwebassets/Uploads/18ce886d-1920-4f75-bc42-ad3643bd20d3.mp3"
+    },
+    {
+      "Id": "/Users/venkataravindrapv/music app/backend/wwwroot/Uploads/3fc03654-ba8a-40a2-ae44-2d39c690a234.jpg",
+      "PackagePath": "staticwebassets/Uploads/3fc03654-ba8a-40a2-ae44-2d39c690a234.jpg"
+    },
+    {
+      "Id": "/Users/venkataravindrapv/music app/backend/wwwroot/Uploads/9ebea38d-83c2-44ec-8649-8715bc1cd668.mp3",
+      "PackagePath": "staticwebassets/Uploads/9ebea38d-83c2-44ec-8649-8715bc1cd668.mp3"
+    },
+    {
+      "Id": "/Users/venkataravindrapv/music app/backend/wwwroot/Uploads/aa02d834-b390-48c8-a7dc-39cea1c8fb4d.JPG",
+      "PackagePath": "staticwebassets/Uploads/aa02d834-b390-48c8-a7dc-39cea1c8fb4d.JPG"
+    },
+    {
+      "Id": "/Users/venkataravindrapv/music app/backend/wwwroot/Uploads/f48ca6a4-0101-423e-8a65-ec2cbfa708b9.mp3",
+      "PackagePath": "staticwebassets/Uploads/f48ca6a4-0101-423e-8a65-ec2cbfa708b9.mp3"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.backend.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.build.backend.props",
+      "PackagePath": "build\\backend.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.backend.props",
+      "PackagePath": "buildMultiTargeting\\backend.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.backend.props",
+      "PackagePath": "buildTransitive\\backend.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

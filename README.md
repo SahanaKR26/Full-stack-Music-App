@@ -53,7 +53,7 @@ On a new machine, install:
 ### 1. Clone / open the project
 
 ```bash
-cd "/Users/venkataravindrapv/music app"
+cd "/Users/Sahana/music app"
 ```
 
 ### 2. Backend
